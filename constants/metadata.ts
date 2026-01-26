@@ -9,9 +9,9 @@ export const SITE_METADATA = {
 
 export const HERO_CONTENT = {
   badge: '✨ Redefining Tax Excellence',
-  heading: 'Are you looking for a',
-  highlightedText: 'hassle-free',
-  headingEnd: 'tax experience?',
+  heading: 'Professional',
+  highlightedText: 'Tax and Accounting',
+  headingEnd: 'Done Right',
   subheading: 'Let Team Inspire simplify the process for you!',
   description: 'Expert tax preparation, maximum refunds, and peace of mind. Professional service you can trust.',
   trustIndicators: [
