@@ -15,7 +15,7 @@ export interface ContactInfo {
 export const CONTACT_INFO: ContactInfo = {
   phone: '+1 (416) 303-3600',
   tollFree: '+1 (844) 760-3600',
-  email: 'contact@teaminspiretax.com',
+  email: 'teaminspiretax@gmail.com',
   address: {
     line1: 'Unit 213, 1085 Bellamy Rd North',
     line2: 'Scarborough, ON M1H 3C7',
