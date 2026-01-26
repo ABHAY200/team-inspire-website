@@ -8,7 +8,7 @@ export const SITE_METADATA = {
 };
 
 export const HERO_CONTENT = {
-  badge: '✨ Trusted by 5,000+ Clients',
+  badge: '✨ Trusted by 2,000+ Clients',
   heading: 'Are you looking for a',
   highlightedText: 'hassle-free',
   headingEnd: 'tax experience?',
