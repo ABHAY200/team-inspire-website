@@ -18,11 +18,10 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_METADATA.author }],
   icons: {
     icon: [
-      { url: '/logo.png', type: 'image/png' },
-      { url: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/favicon.png?raw=true', type: 'image/png' },
+      { url: '/team-inspire-website/favicon.png', type: 'image/png' },
     ],
-    apple: '/logo.png',
-    shortcut: '/logo.png',
+    apple: '/team-inspire-website/logo.png',
+    shortcut: '/team-inspire-website/favicon.png',
   },
   openGraph: {
     title: SITE_METADATA.companyName,
@@ -39,9 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/logo.png" type="image/png" />
-        <link rel="shortcut icon" href="/logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="icon" href="/team-inspire-website/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/team-inspire-website/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/team-inspire-website/logo.png" />
       </head>
       <body className="antialiased">
         <Navbar />
