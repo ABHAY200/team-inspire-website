@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/team-inspire-website',
   images: {
-    domains: ['localhost'],
+    unoptimized: true,
   },
 };
 
