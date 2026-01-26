@@ -4,52 +4,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SectionHeader from '@/components/SectionHeader';
-import ServiceCard from '@/components/ServiceCard';
 import Button from '@/components/Button';
-import { FileText, Briefcase, Calculator, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { SERVICES_DATA } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function ServicesPage() {
-  const services = [
-    {
-      title: 'Personal Tax Services',
-      description: 'Expert tax preparation for individuals. Maximize your returns with professional guidance and ensure compliance with all tax regulations. We handle everything from simple returns to complex tax situations.',
-      icon: <FileText size={40} />,
-      href: '/services/personal-tax',
-      features: [
-        'Individual tax return preparation',
-        'Tax planning and optimization',
-        'CRA correspondence handling',
-        'GST/HST credit applications',
-        'RRSP and TFSA guidance',
-      ],
-    },
-    {
-      title: 'Business Tax Services',
-      description: 'Comprehensive tax solutions for businesses. Strategic planning, compliance, and optimization for corporations and small businesses. We help you minimize tax liability while maintaining full compliance.',
-      icon: <Briefcase size={40} />,
-      href: '/services/business-tax',
-      features: [
-        'Corporate tax returns',
-        'Business tax planning',
-        'Payroll tax services',
-        'HST/GST filing',
-        'Tax audit support',
-      ],
-    },
-    {
-      title: 'Bookkeeping',
-      description: 'Accurate and timely bookkeeping services to keep your finances organized and your business running smoothly. We maintain your records so you can focus on growing your business.',
-      icon: <Calculator size={40} />,
-      href: '/services/bookkeeping',
-      features: [
-        'Monthly bookkeeping',
-        'Financial statement preparation',
-        'Accounts payable/receivable',
-        'Bank reconciliation',
-        'Payroll processing',
-      ],
-    },
-  ];
 
   return (
     <div>
@@ -80,7 +40,7 @@ export default function ServicesPage() {
             center
           />
           <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {SERVICES_DATA.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -89,17 +49,19 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-gold"
               >
-                <div className="text-gold mb-4">{service.icon}</div>
+                <div className="text-gold mb-4">{getIcon(service.iconName, 40)}</div>
                 <h3 className="text-2xl font-bold text-navy mb-3">{service.title}</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-gold mr-2 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {service.features && (
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-gold mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <Link
                   href={service.href}
                   className="inline-flex items-center text-gold font-semibold hover:text-gold-dark transition-colors"

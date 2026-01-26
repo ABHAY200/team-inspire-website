@@ -4,93 +4,12 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
-import { CheckCircle, Upload, FileText, Shield, Clock, Users } from 'lucide-react';
+import { CheckCircle, Shield, Clock } from 'lucide-react';
+import { FILING_METHODS_DATA, TAX_FILING_STEPS, FILING_BENEFITS } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function FileYourTaxPage() {
   const [selectedMethod, setSelectedMethod] = useState<string | null>(null);
-
-  const filingMethods = [
-    {
-      title: 'In-Person',
-      description: 'Book an appointment or walk in for a personalized tax filing experience with our experts.',
-      icon: <Users size={40} />,
-      features: [
-        'Face-to-face consultation',
-        'Expert guidance throughout',
-        'Same-day service available',
-        'Personalized attention',
-      ],
-    },
-    {
-      title: 'Online/Remotely',
-      description: 'Skip the office visit, submit online in minutes — our experts handle the rest. Fast. Easy. Expert-reviewed.',
-      icon: <Upload size={40} />,
-      features: [
-        'Submit from anywhere',
-        'Secure document upload',
-        'Expert review and filing',
-        'Fast turnaround time',
-      ],
-    },
-    {
-      title: 'Document Drop-Off',
-      description: 'Visit our office, leave your documents with us and relax — we\'ll handle the rest. No forms. No stress.',
-      icon: <FileText size={40} />,
-      features: [
-        'Quick drop-off process',
-        'No appointment needed',
-        'We handle everything',
-        'Pick up when ready',
-      ],
-    },
-  ];
-
-  const steps = [
-    {
-      number: '1',
-      title: 'Register',
-      description: 'Create an account on our secured platform',
-    },
-    {
-      number: '2',
-      title: 'Login',
-      description: 'Access your personalized dashboard',
-    },
-    {
-      number: '3',
-      title: 'Select Service',
-      description: 'Choose the service that fits your needs',
-    },
-    {
-      number: '4',
-      title: 'Upload Documents',
-      description: 'Securely upload your tax documents',
-    },
-    {
-      number: '5',
-      title: 'Provide Info',
-      description: 'Share basic information about your tax situation',
-    },
-    {
-      number: '6',
-      title: 'Submit Application',
-      description: 'Send your application for expert processing',
-    },
-    {
-      number: '7',
-      title: 'Connect Expert',
-      description: 'Our expert will connect with you soon!',
-    },
-  ];
-
-  const benefits = [
-    'Expert tax preparers with years of experience',
-    'Maximum refunds guaranteed',
-    'Secure and confidential handling',
-    'Fast and efficient processing',
-    'CRA correspondence handled',
-    'Year-round support available',
-  ];
 
   return (
     <div>
@@ -121,7 +40,7 @@ export default function FileYourTaxPage() {
             center
           />
           <div className="grid md:grid-cols-3 gap-8">
-            {filingMethods.map((method, index) => (
+            {FILING_METHODS_DATA.map((method, index) => (
               <motion.div
                 key={method.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -135,7 +54,7 @@ export default function FileYourTaxPage() {
                     : 'border border-gray-100 hover:shadow-xl'
                 }`}
               >
-                <div className="text-gold mb-4 flex justify-center">{method.icon}</div>
+                <div className="text-gold mb-4 flex justify-center">{getIcon(method.iconName, 40)}</div>
                 <h3 className="text-2xl font-bold text-navy mb-3 text-center">{method.title}</h3>
                 <p className="text-gray-600 mb-6 text-center">{method.description}</p>
                 <ul className="space-y-2">
@@ -162,7 +81,7 @@ export default function FileYourTaxPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
+            {TAX_FILING_STEPS.map((step, index) => (
               <motion.div
                 key={step.number}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -198,7 +117,7 @@ export default function FileYourTaxPage() {
                 description=""
               />
               <div className="space-y-4 mt-8">
-                {benefits.map((benefit, index) => (
+                {FILING_BENEFITS.map((benefit, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}

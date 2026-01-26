@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { CONTACT_INFO, SOCIAL_MEDIA, SITE_METADATA } from '@/constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -14,26 +15,26 @@ const Footer: React.FC = () => {
           <div>
             <div className="mb-4">
               <Image
-                src="/logo.png"
-                alt="Team Inspire Tax & Accounting"
+                src={SITE_METADATA.logo}
+                alt={SITE_METADATA.companyName}
                 width={200}
                 height={60}
                 className="h-12 w-auto object-contain"
               />
             </div>
             <p className="text-gray-300 text-sm mb-4">
-              Professional tax and accounting services you can trust. Maximize your returns with expert guidance.
+              {SITE_METADATA.description}
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href={SOCIAL_MEDIA.facebook}
                 className="text-gray-300 hover:text-gold transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
               </a>
               <a
-                href="#"
+                href={SOCIAL_MEDIA.instagram}
                 className="text-gray-300 hover:text-gold transition-colors"
                 aria-label="Instagram"
               >
@@ -107,24 +108,24 @@ const Footer: React.FC = () => {
               <li className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-300 text-sm">+1 (416) 303-3600</p>
-                  <p className="text-gray-400 text-xs">Toll Free: +1 (844) 760-3600</p>
+                  <p className="text-gray-300 text-sm">{CONTACT_INFO.phone}</p>
+                  <p className="text-gray-400 text-xs">Toll Free: {CONTACT_INFO.tollFree}</p>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:contact@teaminspiretax.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="text-gray-300 hover:text-gold transition-colors text-sm"
                 >
-                  contact@teaminspiretax.com
+                  {CONTACT_INFO.email}
                 </a>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
                 <p className="text-gray-300 text-sm">
-                  Unit 213, 1085 Bellamy Rd North<br />
-                  Scarborough, ON M1H 3C7
+                  {CONTACT_INFO.address.line1}<br />
+                  {CONTACT_INFO.address.line2}
                 </p>
               </li>
             </ul>
@@ -134,7 +135,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Team Inspire Tax & Accounting. All rights reserved.
+              © {currentYear} {SITE_METADATA.companyName}. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="#" className="text-gray-400 hover:text-gold transition-colors text-sm">

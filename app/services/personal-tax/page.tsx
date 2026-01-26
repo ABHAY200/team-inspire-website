@@ -4,60 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
-import { CheckCircle, FileText, Calculator, Shield, Clock, Users } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { PERSONAL_TAX_SERVICES_DATA, PERSONAL_TAX_BENEFITS, COMMON_TAX_SITUATIONS } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function PersonalTaxPage() {
-  const services = [
-    {
-      title: 'Individual Tax Returns',
-      description: 'Complete preparation and filing of your personal income tax return with maximum deductions and credits.',
-      icon: <FileText size={32} />,
-    },
-    {
-      title: 'Tax Planning',
-      description: 'Strategic planning to minimize your tax liability and maximize your refunds throughout the year.',
-      icon: <Calculator size={32} />,
-    },
-    {
-      title: 'CRA Correspondence',
-      description: 'We handle all communications with the Canada Revenue Agency on your behalf.',
-      icon: <Shield size={32} />,
-    },
-    {
-      title: 'Prior Year Returns',
-      description: 'Catch up on missed tax years and get back on track with your filing obligations.',
-      icon: <Clock size={32} />,
-    },
-    {
-      title: 'Family Tax Services',
-      description: 'Comprehensive tax services for families, including spousal returns and dependent claims.',
-      icon: <Users size={32} />,
-    },
-  ];
-
-  const benefits = [
-    'Maximize your tax refunds with expert knowledge',
-    'Ensure full compliance with CRA regulations',
-    'Save time with our streamlined process',
-    'Get year-round support and advice',
-    'Handle complex situations with confidence',
-    'Protect yourself from audits and penalties',
-  ];
-
-  const commonSituations = [
-    'Employment income (T4 slips)',
-    'Self-employment income',
-    'Investment income (T3, T5 slips)',
-    'Rental income and expenses',
-    'RRSP contributions and withdrawals',
-    'Tuition and education credits',
-    'Medical expenses',
-    'Charitable donations',
-    'Moving expenses',
-    'Child care expenses',
-    'GST/HST credit applications',
-    'New immigrant tax filing',
-  ];
 
   return (
     <div>
@@ -88,7 +39,7 @@ export default function PersonalTaxPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {PERSONAL_TAX_SERVICES_DATA.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -97,7 +48,7 @@ export default function PersonalTaxPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="text-gold mb-4">{service.icon}</div>
+                <div className="text-gold mb-4">{getIcon(service.iconName, 32)}</div>
                 <h3 className="text-xl font-bold text-navy mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
               </motion.div>
@@ -122,7 +73,7 @@ export default function PersonalTaxPage() {
                 description=""
               />
               <div className="space-y-4 mt-8">
-                {benefits.map((benefit, index) => (
+                {PERSONAL_TAX_BENEFITS.map((benefit, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
@@ -169,7 +120,7 @@ export default function PersonalTaxPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {commonSituations.map((situation, index) => (
+            {COMMON_TAX_SITUATIONS.map((situation, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { NAV_LINKS, SITE_METADATA } from '@/constants';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,21 +20,6 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    {
-      name: 'Services',
-      href: '/services',
-      submenu: [
-        { name: 'Personal Tax Services', href: '/services/personal-tax' },
-        { name: 'Business Tax Services', href: '/services/business-tax' },
-        { name: 'Bookkeeping', href: '/services/bookkeeping' },
-      ],
-    },
-    { name: 'File Your Tax', href: '/file-your-tax' },
-  ];
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -47,8 +33,8 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.png"
-              alt="Team Inspire Tax & Accounting"
+              src={SITE_METADATA.logo}
+              alt={SITE_METADATA.companyName}
               width={200}
               height={60}
               className={`h-8 sm:h-10 md:h-12 w-auto object-contain transition-all duration-300 ${
@@ -60,7 +46,7 @@ const Navbar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <div key={link.name} className="relative group">
                 {link.submenu ? (
                   <div
@@ -143,7 +129,7 @@ const Navbar: React.FC = () => {
             className="lg:hidden bg-navy border-t border-navy-light"
           >
             <div className="px-4 py-4 space-y-4">
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <div key={link.name}>
                   {link.submenu ? (
                     <div>

@@ -4,42 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
-import { Target, Users, Award, Heart, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { COMPANY_VALUES_DATA, WHY_CHOOSE_US, COMPANY_STORY } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function AboutPage() {
-  const values = [
-    {
-      icon: <Target size={40} />,
-      title: 'Our Mission',
-      description: 'To provide exceptional tax and accounting services that help our clients achieve financial success and peace of mind.',
-    },
-    {
-      icon: <Users size={40} />,
-      title: 'Client-Focused',
-      description: 'We prioritize our clients\' needs and work tirelessly to ensure their satisfaction and financial well-being.',
-    },
-    {
-      icon: <Award size={40} />,
-      title: 'Excellence',
-      description: 'We maintain the highest standards of professionalism and expertise in all our services.',
-    },
-    {
-      icon: <Heart size={40} />,
-      title: 'Integrity',
-      description: 'We conduct our business with honesty, transparency, and ethical practices you can trust.',
-    },
-  ];
-
-  const whyChooseUs = [
-    'Expert team with years of experience',
-    'Personalized service for every client',
-    'Fast and efficient tax filing process',
-    'Maximum refunds guaranteed',
-    'Secure and confidential handling',
-    'Comprehensive tax planning advice',
-    'Year-round support and consultation',
-    'Competitive pricing with transparent fees',
-  ];
 
   return (
     <div>
@@ -76,27 +45,10 @@ export default function AboutPage() {
                 description=""
               />
               <div className="space-y-4 text-gray-700">
-                <p>
-                  Team Inspire Tax & Accounting was founded with a simple mission: to make tax
-                  preparation and accounting services accessible, professional, and stress-free
-                  for everyone.
-                </p>
-                <p>
-                  With over 10 years of combined experience, our team of certified tax
-                  professionals and accountants has helped thousands of individuals and businesses
-                  navigate the complexities of the Canadian tax system.
-                </p>
-                <p>
-                  We understand that tax season can be overwhelming. That's why we've built our
-                  practice around three core principles: expertise, integrity, and personalized
-                  service. Every client receives the attention and care they deserve, whether
-                  they're filing a simple personal return or managing complex business taxes.
-                </p>
-                <p>
-                  Our commitment to staying current with the latest tax laws and regulations
-                  ensures that our clients always receive accurate, up-to-date advice and
-                  maximize their returns while maintaining full compliance.
-                </p>
+                <p>{COMPANY_STORY.introduction}</p>
+                <p>{COMPANY_STORY.experience}</p>
+                <p>{COMPANY_STORY.approach}</p>
+                <p>{COMPANY_STORY.commitment}</p>
               </div>
             </motion.div>
             <motion.div
@@ -126,7 +78,7 @@ export default function AboutPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
+            {COMPANY_VALUES_DATA.map((value, index) => (
               <motion.div
                 key={value.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -135,7 +87,7 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl p-6 shadow-lg text-center hover:shadow-xl transition-shadow"
               >
-                <div className="text-gold mb-4 flex justify-center">{value.icon}</div>
+                <div className="text-gold mb-4 flex justify-center">{getIcon(value.iconName, 40)}</div>
                 <h3 className="text-xl font-bold text-navy mb-3">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
@@ -160,7 +112,7 @@ export default function AboutPage() {
                 description=""
               />
               <div className="space-y-4">
-                {whyChooseUs.map((item, index) => (
+                {WHY_CHOOSE_US.map((item, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}

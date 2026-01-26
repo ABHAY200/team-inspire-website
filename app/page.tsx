@@ -2,117 +2,15 @@
 
 import React, { useEffect, useRef } from 'react';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
-import Link from 'next/link';
 import Button from '@/components/Button';
 import ServiceCard from '@/components/ServiceCard';
 import SectionHeader from '@/components/SectionHeader';
 import TestimonialCard from '@/components/TestimonialCard';
-import {
-  FileText,
-  Briefcase,
-  Calculator,
-  CheckCircle,
-  Users,
-  TrendingUp,
-  Award,
-  Clock,
-  ArrowRight,
-  HelpCircle,
-} from 'lucide-react';
+import { CheckCircle, Users, Clock, FileText, HelpCircle } from 'lucide-react';
+import { SERVICES_DATA, TESTIMONIALS, STATS, TAX_FILING_STEPS, FAQS, HERO_CONTENT } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function Home() {
-  const services = [
-    {
-      title: 'Personal Tax Services',
-      description: 'Expert tax preparation for individuals. Maximize your returns with professional guidance and ensure compliance with all tax regulations.',
-      icon: <FileText size={40} />,
-      href: '/services/personal-tax',
-    },
-    {
-      title: 'Business Tax Services',
-      description: 'Comprehensive tax solutions for businesses. Strategic planning, compliance, and optimization for corporations and small businesses.',
-      icon: <Briefcase size={40} />,
-      href: '/services/business-tax',
-    },
-    {
-      title: 'Bookkeeping',
-      description: 'Accurate and timely bookkeeping services to keep your finances organized and your business running smoothly.',
-      icon: <Calculator size={40} />,
-      href: '/services/bookkeeping',
-    },
-  ];
-
-  const steps = [
-    {
-      number: '1',
-      title: 'Register',
-      description: 'Create an account on our secured platform',
-    },
-    {
-      number: '2',
-      title: 'Login',
-      description: 'Access your personalized dashboard',
-    },
-    {
-      number: '3',
-      title: 'Select Service',
-      description: 'Choose the service that fits your needs',
-    },
-    {
-      number: '4',
-      title: 'Upload Documents',
-      description: 'Securely upload your tax documents',
-    },
-    {
-      number: '5',
-      title: 'Provide Info',
-      description: 'Share basic information about your tax situation',
-    },
-    {
-      number: '6',
-      title: 'Submit Application',
-      description: 'Send your application for expert processing',
-    },
-    {
-      number: '7',
-      title: 'Connect Expert',
-      description: 'Our expert will connect with you soon!',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      location: 'Toronto, ON',
-      content: 'I had the best consultation from the representatives. They never hesitated to call me back or clear all my queries regarding all the services they provide. All the best team!',
-      rating: 5,
-    },
-    {
-      name: 'Michael Chen',
-      location: 'Ontario',
-      content: 'Positive: Professionalism, Quality, Responsiveness, Value. The communication was good and simple. Standard service charge. Can trust for a responsible work.',
-      rating: 5,
-    },
-    {
-      name: 'Emily Rodriguez',
-      location: 'Ontario',
-      content: 'Amazing service, family oriented and very honest people! They are very knowledgeable, professional and most importantly saved me lots of money than doing it alone and it was the easiest process ever!',
-      rating: 5,
-    },
-    {
-      name: 'David Kim',
-      location: 'Ontario',
-      content: 'I had a Great experience with my tax filing. As a new international student I had many questions regarding the tax filing, they help me through each process and very professional staffs too.',
-      rating: 5,
-    },
-  ];
-
-  const stats = [
-    { number: '10+', label: 'Years Experience', value: 10, suffix: '+' },
-    { number: '5K+', label: 'Happy Clients', value: 5, suffix: 'K+' },
-    { number: '15K+', label: 'Tax Returns Filed', value: 15, suffix: 'K+' },
-    { number: '4.9', label: 'Average Rating', value: 4.9, suffix: '' },
-  ];
 
   // Animated Counter Component
   const AnimatedCounter = ({ value, suffix, delay = 0 }: { value: number; suffix: string; delay?: number }) => {
@@ -155,24 +53,6 @@ export default function Home() {
     );
   };
 
-  const faqs = [
-    {
-      question: 'How long will it take to receive the Notice of Assessment?',
-      answer: 'When you file your tax return, the CRA will review it and send you a Notice of Assessment. If you filed electronically, standard time to issue your notice of assessment is within 2 weeks of receiving your return and any required supporting documents.',
-    },
-    {
-      question: 'How long will it take to get a refund from CRA?',
-      answer: 'Canada Revenue Agency (CRA) says that it takes about 2 weeks to process the tax returns.',
-    },
-    {
-      question: 'How can I create my CRA Account?',
-      answer: 'To create/login click CRA sign-in services on the Canada.ca website. We can assist you during your tax filing process.',
-    },
-    {
-      question: 'What will happen if I file my taxes after the deadline?',
-      answer: 'The CRA will charge you a late-filing penalty if you file your tax returns after the deadline and you owe tax that remains unpaid at that time. The penalty for your current year late-filing will be 5% of your tax balance owing, plus 1% of your balance owing for each full month your return was filed after the deadline.',
-    },
-  ];
 
   return (
     <div>
@@ -237,7 +117,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center justify-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full mb-4 sm:mb-6"
             >
-              <span className="text-gold text-xs sm:text-sm font-semibold">✨ Trusted by 5,000+ Clients</span>
+              <span className="text-gold text-xs sm:text-sm font-semibold">{HERO_CONTENT.badge}</span>
             </motion.div>
 
             {/* Main Heading */}
@@ -247,9 +127,9 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight px-4 sm:px-6 md:px-0"
             >
-              Are you looking for a{' '}
+              {HERO_CONTENT.heading}{' '}
               <span className="relative inline-block">
-                <span className="text-gold relative z-10">hassle-free</span>
+                <span className="text-gold relative z-10">{HERO_CONTENT.highlightedText}</span>
                 <motion.span
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
@@ -257,7 +137,7 @@ export default function Home() {
                   className="absolute bottom-1 sm:bottom-2 left-0 h-2 sm:h-3 bg-gold/30 -z-0"
                 />
               </span>{' '}
-              tax experience?
+              {HERO_CONTENT.headingEnd}
             </motion.h1>
 
             {/* Subheading */}
@@ -267,7 +147,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-lg sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-2 sm:mb-3 md:mb-4 font-light px-4 sm:px-6 md:px-0"
             >
-              Let <span className="text-gold font-semibold">Team Inspire</span> simplify the process for you!
+              {HERO_CONTENT.subheading}
             </motion.p>
 
             {/* Description */}
@@ -277,7 +157,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className="text-md sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto px-4 sm:px-6 md:px-0"
             >
-              Expert tax preparation, maximum refunds, and peace of mind. Professional service you can trust.
+              {HERO_CONTENT.description}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -302,20 +182,15 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 1.1 }}
               className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-xs sm:text-sm md:text-base px-4 sm:px-0 w-full"
             >
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gold flex-shrink-0" />
-                <span className="text-gray-300 whitespace-nowrap">Expert Reviewed</span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 bg-gold rounded-full" />
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gold flex-shrink-0" />
-                <span className="text-gray-300 whitespace-nowrap">Secure & Confidential</span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 bg-gold rounded-full" />
-              <div className="flex items-center justify-center gap-2">
-                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gold flex-shrink-0" />
-                <span className="text-gray-300 whitespace-nowrap">Fast Processing</span>
-              </div>
+              {HERO_CONTENT.trustIndicators.map((indicator, index) => (
+                <React.Fragment key={indicator}>
+                  {index > 0 && <div className="hidden sm:block w-1 h-1 bg-gold rounded-full" />}
+                  <div className="flex items-center justify-center gap-2">
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gold flex-shrink-0" />
+                    <span className="text-gray-300 whitespace-nowrap">{indicator}</span>
+                  </div>
+                </React.Fragment>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -394,12 +269,12 @@ export default function Home() {
             center
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {services.map((service, index) => (
+            {SERVICES_DATA.map((service, index) => (
               <ServiceCard
                 key={service.title}
                 title={service.title}
                 description={service.description}
-                icon={service.icon}
+                icon={getIcon(service.iconName, 40)}
                 href={service.href}
                 delay={index * 0.1}
               />
@@ -419,7 +294,7 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, index) => (
+            {STATS.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 30, scale: 0.8 }}
@@ -493,7 +368,7 @@ export default function Home() {
             center
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
+            {TESTIMONIALS.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
@@ -517,7 +392,7 @@ export default function Home() {
             center
           />
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
+            {FAQS.map((faq, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import { CONTACT_INFO } from '@/constants';
 
 export default function BookNowPage() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,6 @@ export default function BookNowPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
     alert('Thank you for booking! We will confirm your appointment soon.');
     setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
@@ -34,26 +34,26 @@ export default function BookNowPage() {
     {
       icon: <Phone size={24} />,
       title: 'Phone',
-      content: '+1 (416) 303-3600',
-      subcontent: 'Toll Free: +1 (844) 760-3600',
+      content: CONTACT_INFO.phone,
+      subcontent: `Toll Free: ${CONTACT_INFO.tollFree}`,
     },
     {
       icon: <Mail size={24} />,
       title: 'Email',
-      content: 'contact@teaminspiretax.com',
+      content: CONTACT_INFO.email,
       subcontent: 'We respond within 24 hours',
     },
     {
       icon: <MapPin size={24} />,
       title: 'Address',
-      content: 'Unit 213, 1085 Bellamy Rd North',
-      subcontent: 'Scarborough, ON M1H 3C7',
+      content: CONTACT_INFO.address.line1,
+      subcontent: CONTACT_INFO.address.line2,
     },
     {
       icon: <Clock size={24} />,
       title: 'Business Hours',
-      content: 'Monday - Friday: 9:00 AM - 6:00 PM',
-      subcontent: 'Saturday: 10:00 AM - 4:00 PM',
+      content: CONTACT_INFO.businessHours.weekdays,
+      subcontent: CONTACT_INFO.businessHours.saturday,
     },
   ];
 
@@ -123,7 +123,7 @@ export default function BookNowPage() {
                   with your tax and accounting needs.
                 </p>
                 <Button
-                  href="tel:+14163033600"
+                  href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}
                   variant="primary"
                   size="md"
                   className="bg-gold hover:bg-gold-light"
@@ -257,8 +257,8 @@ export default function BookNowPage() {
               <div className="text-center">
                 <MapPin className="h-16 w-16 text-gold mx-auto mb-4" />
                 <p className="text-gray-600 text-lg">
-                  Unit 213, 1085 Bellamy Rd North<br />
-                  Scarborough, ON M1H 3C7
+                  {CONTACT_INFO.address.line1}<br />
+                  {CONTACT_INFO.address.line2}
                 </p>
                 <p className="text-gray-500 mt-4">
                   (Map integration can be added here)

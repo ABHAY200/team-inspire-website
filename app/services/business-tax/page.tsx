@@ -4,54 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
-import { CheckCircle, Briefcase, TrendingUp, Shield, FileText, Calculator } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { BUSINESS_TAX_SERVICES_DATA, BUSINESS_TAX_BENEFITS, BUSINESS_TYPES } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function BusinessTaxPage() {
-  const services = [
-    {
-      title: 'Corporate Tax Returns',
-      description: 'Complete preparation and filing of corporate tax returns (T2) for all business structures.',
-      icon: <FileText size={32} />,
-    },
-    {
-      title: 'Business Tax Planning',
-      description: 'Strategic tax planning to minimize your business tax liability and maximize deductions.',
-      icon: <Calculator size={32} />,
-    },
-    {
-      title: 'HST/GST Filing',
-      description: 'Regular HST/GST return preparation and filing to ensure compliance with CRA requirements.',
-      icon: <TrendingUp size={32} />,
-    },
-    {
-      title: 'Payroll Tax Services',
-      description: 'Complete payroll processing including source deductions, remittances, and T4 preparation.',
-      icon: <Briefcase size={32} />,
-    },
-    {
-      title: 'Tax Audit Support',
-      description: 'Expert representation and support if your business faces a CRA audit or review.',
-      icon: <Shield size={32} />,
-    },
-  ];
-
-  const benefits = [
-    'Minimize your business tax liability legally',
-    'Ensure full compliance with CRA regulations',
-    'Save time to focus on growing your business',
-    'Get expert advice on tax-saving strategies',
-    'Protect your business from penalties',
-    'Plan ahead with year-round tax guidance',
-  ];
-
-  const businessTypes = [
-    'Sole Proprietorships',
-    'Partnerships',
-    'Corporations (T2 returns)',
-    'Small Business Corporations',
-    'Professional Corporations',
-    'Non-profit Organizations',
-  ];
 
   return (
     <div>
@@ -82,7 +39,7 @@ export default function BusinessTaxPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {BUSINESS_TAX_SERVICES_DATA.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -91,7 +48,7 @@ export default function BusinessTaxPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="text-gold mb-4">{service.icon}</div>
+                <div className="text-gold mb-4">{getIcon(service.iconName, 32)}</div>
                 <h3 className="text-xl font-bold text-navy mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
               </motion.div>
@@ -134,7 +91,7 @@ export default function BusinessTaxPage() {
                 description=""
               />
               <div className="space-y-4 mt-8">
-                {benefits.map((benefit, index) => (
+                {BUSINESS_TAX_BENEFITS.map((benefit, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: 20 }}
@@ -163,7 +120,7 @@ export default function BusinessTaxPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {businessTypes.map((type, index) => (
+            {BUSINESS_TYPES.map((type, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}

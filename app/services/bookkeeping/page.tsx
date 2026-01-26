@@ -4,56 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import Button from '@/components/Button';
-import { CheckCircle, Calculator, FileText, TrendingUp, Clock, Shield } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import { BOOKKEEPING_SERVICES_DATA, BOOKKEEPING_BENEFITS, BOOKKEEPING_TASKS } from '@/constants';
+import { getIcon } from '@/utils/icons';
 
 export default function BookkeepingPage() {
-  const services = [
-    {
-      title: 'Monthly Bookkeeping',
-      description: 'Regular monthly bookkeeping to keep your financial records up-to-date and organized.',
-      icon: <Clock size={32} />,
-    },
-    {
-      title: 'Financial Statements',
-      description: 'Preparation of accurate financial statements including income statements and balance sheets.',
-      icon: <FileText size={32} />,
-    },
-    {
-      title: 'Accounts Payable/Receivable',
-      description: 'Complete management of your accounts payable and receivable to maintain cash flow.',
-      icon: <TrendingUp size={32} />,
-    },
-    {
-      title: 'Bank Reconciliation',
-      description: 'Regular bank reconciliation to ensure accuracy and catch discrepancies early.',
-      icon: <Calculator size={32} />,
-    },
-    {
-      title: 'Payroll Processing',
-      description: 'Complete payroll services including calculations, remittances, and T4 preparation.',
-      icon: <Shield size={32} />,
-    },
-  ];
-
-  const benefits = [
-    'Save time to focus on growing your business',
-    'Accurate financial records for better decision-making',
-    'Stay compliant with accounting standards',
-    'Get timely financial reports and insights',
-    'Reduce errors and catch issues early',
-    'Professional organization of your finances',
-  ];
-
-  const whatWeDo = [
-    'Record all financial transactions',
-    'Categorize income and expenses',
-    'Reconcile bank and credit card accounts',
-    'Prepare financial statements',
-    'Manage accounts payable and receivable',
-    'Process payroll and remittances',
-    'Generate financial reports',
-    'Maintain organized records',
-  ];
 
   return (
     <div>
@@ -84,7 +39,7 @@ export default function BookkeepingPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {BOOKKEEPING_SERVICES_DATA.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -93,7 +48,7 @@ export default function BookkeepingPage() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="text-gold mb-4">{service.icon}</div>
+                <div className="text-gold mb-4">{getIcon(service.iconName, 32)}</div>
                 <h3 className="text-xl font-bold text-navy mb-2">{service.title}</h3>
                 <p className="text-gray-600">{service.description}</p>
               </motion.div>
@@ -112,7 +67,7 @@ export default function BookkeepingPage() {
             center
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whatWeDo.map((item, index) => (
+            {BOOKKEEPING_TASKS.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 10 }}
@@ -145,7 +100,7 @@ export default function BookkeepingPage() {
                 description=""
               />
               <div className="space-y-4 mt-8">
-                {benefits.map((benefit, index) => (
+                {BOOKKEEPING_BENEFITS.map((benefit, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
