@@ -7,7 +7,7 @@ import ServiceCard from '@/components/ServiceCard';
 import SectionHeader from '@/components/SectionHeader';
 import TestimonialCard from '@/components/TestimonialCard';
 import { CheckCircle, Users, Clock, FileText, HelpCircle } from 'lucide-react';
-import { SERVICES_DATA, TESTIMONIALS, STATS, TAX_FILING_STEPS, FAQS, HERO_CONTENT } from '@/constants';
+import { SERVICES_DATA, TESTIMONIALS, STATS, FAQS, HERO_CONTENT } from '@/constants';
 import { getIcon } from '@/utils/icons';
 
 export default function Home() {
