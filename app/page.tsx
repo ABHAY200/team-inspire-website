@@ -128,15 +128,7 @@ export default function Home() {
               className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight px-4 sm:px-6 md:px-0"
             >
               {HERO_CONTENT.heading}{' '}
-              <span className="relative inline-block">
-                <span className="text-gold relative z-10">{HERO_CONTENT.highlightedText}</span>
-                <motion.span
-                  initial={{ width: 0 }}
-                  animate={{ width: '100%' }}
-                  transition={{ duration: 0.8, delay: 1.2 }}
-                  className="absolute bottom-1 sm:bottom-2 left-0 h-2 sm:h-3 bg-gold/30 -z-0"
-                />
-              </span>{' '}
+              <span className="text-gold">{HERO_CONTENT.highlightedText}</span>{' '}
               {HERO_CONTENT.headingEnd}
             </motion.h1>
 

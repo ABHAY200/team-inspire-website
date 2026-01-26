@@ -12,3 +12,4 @@ export * from './businessTax';
 export * from './bookkeeping';
 export * from './filingMethods';
 export * from './metadata';
+export * from './gallery';
