@@ -14,7 +14,7 @@ export interface ContactInfo {
 
 export const CONTACT_INFO: ContactInfo = {
   phone: '+1 (437) 873-6065',
-  mobile: '+1 (437) 326-1797',
+  tollFree: '+1 (437) 326-1797',
   email: 'teaminspiretax@gmail.com',
   address: {
     line1: 'Unit 305, 5200 Finch Ave East',
