@@ -13,15 +13,15 @@ export interface ContactInfo {
 }
 
 export const CONTACT_INFO: ContactInfo = {
-  phone: '+1 (416) 303-3600',
-  tollFree: '+1 (844) 760-3600',
+  phone: '+1 (437) 873-6065',
+  mobile: '+1 (437) 326-1797',
   email: 'teaminspiretax@gmail.com',
   address: {
-    line1: 'Unit 213, 1085 Bellamy Rd North',
-    line2: 'Scarborough, ON M1H 3C7',
+    line1: 'Unit 305, 5200 Finch Ave East',
+    line2: 'Scarborough, ON M1S 4Z4',
   },
   businessHours: {
-    weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
+    weekdays: 'Monday - Friday: 9:00 AM - 7:00 PM',
     saturday: 'Saturday: 10:00 AM - 4:00 PM',
   },
 };
