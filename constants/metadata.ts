@@ -4,7 +4,7 @@ export const SITE_METADATA = {
   keywords: 'tax services, accounting, tax preparation, bookkeeping, business tax, personal tax, tax consultant',
   author: 'Team Inspire Tax & Accounting',
   companyName: 'Team Inspire Tax & Accounting',
-  logo: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true',
+  logo: '/team-inspire-website/logo.png',
 };
 
 export const HERO_CONTENT = {
