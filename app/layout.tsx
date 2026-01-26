@@ -18,10 +18,11 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_METADATA.author }],
   icons: {
     icon: [
-      { url: '/team-inspire-website/favicon.png', type: 'image/png' },
+      { url: '/logo.png', type: 'image/png' },
+      { url: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true', type: 'image/png' },
     ],
-    apple: '/team-inspire-website/logo.png',
-    shortcut: '/team-inspire-website/favicon.png',
+    apple: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true',
+    shortcut: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/favicon.png?raw=true',
   },
   openGraph: {
     title: SITE_METADATA.companyName,
@@ -38,9 +39,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/team-inspire-website/favicon.png" type="image/png" />
-        <link rel="shortcut icon" href="/team-inspire-website/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/team-inspire-website/logo.png" />
+        <link rel="icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" type="image/png" />
+        <link rel="shortcut icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" type="image/png" />
+        <link rel="apple-touch-icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" />
       </head>
       <body className="antialiased">
         <Navbar />
