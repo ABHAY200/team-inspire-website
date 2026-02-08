@@ -7,27 +7,27 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Sarah Johnson',
+    name: 'Amal K Benny',
     location: 'Toronto, ON',
-    content: 'I had the best consultation from the representatives. They never hesitated to call me back or clear all my queries regarding all the services they provide. All the best team!',
+    content: 'Best tax advisory in Toronto. The team goes well beyond tax filing and discussed situation in details and provides case specific advise. I will recommend Team Inspire Tax Services for anyone seeking tax advice. Highly recommend their services for sure.',
     rating: 5,
   },
   {
-    name: 'Michael Chen',
+    name: 'Anusha Abraham',
     location: 'Ontario',
-    content: 'Positive: Professionalism, Quality, Responsiveness, Value. The communication was good and simple. Standard service charge. Can trust for a responsible work.',
+    content: "I had few questions on the tax filed by someone else and when checked, I was asked to approach Team Inspire and heard good reviews..and it's true..Joshua was the consultant who helped and cleared all my doubts patiently ..highly recommending this firm to whoever wants their taxes taken care of.",
     rating: 5,
   },
   {
-    name: 'Emily Rodriguez',
+    name: 'Vipil Paul',
     location: 'Ontario',
-    content: 'Amazing service, family oriented and very honest people! They are very knowledgeable, professional and most importantly saved me lots of money than doing it alone and it was the easiest process ever!',
+    content: "The process was easy and fast and I got my return within 2 weeks. I haven't received this much amount before. professional service with efficiency!",
     rating: 5,
   },
   {
-    name: 'David Kim',
-    location: 'Ontario',
-    content: 'I had a Great experience with my tax filing. As a new international student I had many questions regarding the tax filing, they help me through each process and very professional staffs too.',
+    name: 'Sarah Johnson',
+    location: 'Toronto',
+    content: "I had the best consultation from the representatives. They never hesitated to call me back or clear all my queries regarding all the services they provide. All the best team!",
     rating: 5,
   },
 ];
