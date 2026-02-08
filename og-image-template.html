@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Image Generator - Team Inspire Tax & Accounting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+        
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #1e3a5f 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 80px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+        
+        .company-name {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .title {
+            color: white;
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        
+        .highlight {
+            color: #f59e0b;
+            display: block;
+        }
+        
+        .description {
+            color: rgba(255,255,255,0.9);
+            font-size: 28px;
+            line-height: 1.4;
+            max-width: 900px;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .features {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .website {
+            color: #f59e0b;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .accent-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.1);
+        }
+        
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 300px;
+            height: 300px;
+            bottom: -150px;
+            left: -100px;
+        }
+        
+        .instructions {
+            max-width: 1200px;
+            margin-top: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .instructions h2 {
+            color: #1e3a5f;
+            margin-bottom: 20px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .instructions code {
+            background: #f3f4f6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div class="og-image" id="ogImage">
+            <div class="pattern"></div>
+            <div class="accent-circle circle-1"></div>
+            <div class="accent-circle circle-2"></div>
+            
+            <div class="content">
+                <div class="logo-section">
+                    <div class="logo">TI</div>
+                    <div class="company-name">Team Inspire</div>
+                </div>
+                
+                <div class="main-content">
+                    <h1 class="title">
+                        Professional
+                        <span class="highlight">Tax & Accounting</span>
+                        Services
+                    </h1>
+                    <p class="description">
+                        Expert tax preparation, business consulting, and bookkeeping services. Maximize your returns with trusted professionals.
+                    </p>
+                </div>
+                
+                <div class="footer">
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Expert Reviewed</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Secure & Confidential</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Fast Processing</span>
+                        </div>
+                    </div>
+                    <div class="website">teaminspiretax.ca</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>📸 How to Create Your OG Image</h2>
+            <ol>
+                <li>Open this HTML file in your browser (Chrome recommended)</li>
+                <li>Press <code>F12</code> to open Developer Tools</li>
+                <li>Press <code>Ctrl+Shift+P</code> (Windows) or <code>Cmd+Shift+P</code> (Mac)</li>
+                <li>Type "screenshot" and select <strong>"Capture node screenshot"</strong></li>
+                <li>Click on the blue gradient box (the OG image)</li>
+                <li>The image will download automatically as <code>og-image.png</code></li>
+                <li>Move the downloaded image to your <code>public/</code> folder</li>
+                <li>Rename it to <code>og-image.png</code> if needed</li>
+            </ol>
+            <p style="margin-top: 20px; color: #666;">
+                <strong>Alternative:</strong> Use online tools like <a href="https://www.canva.com" target="_blank">Canva</a> or 
+                <a href="https://www.figma.com" target="_blank">Figma</a> to create a custom 1200x630px image.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

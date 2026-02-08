@@ -12,22 +12,74 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: SITE_METADATA.title,
+  metadataBase: new URL(SITE_METADATA.siteUrl),
+  title: {
+    default: SITE_METADATA.title,
+    template: `%s | ${SITE_METADATA.companyName}`,
+  },
   description: SITE_METADATA.description,
   keywords: SITE_METADATA.keywords,
   authors: [{ name: SITE_METADATA.author }],
+  creator: SITE_METADATA.author,
+  publisher: SITE_METADATA.companyName,
+  
+  // Icons
   icons: {
     icon: [
-      { url: '/logo.png', type: 'image/png' },
-      { url: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true', type: 'image/png' },
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/logo.png', type: 'image/png', sizes: '192x192' },
     ],
-    apple: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true',
-    shortcut: 'https://github.com/ABHAY200/team-inspire-website/blob/main/public/favicon.png?raw=true',
+    apple: '/logo.png',
+    shortcut: '/favicon.png',
   },
+  
+  // Open Graph (Facebook, LinkedIn, WhatsApp, etc.)
   openGraph: {
-    title: SITE_METADATA.companyName,
+    type: 'website',
+    locale: 'en_CA',
+    url: SITE_METADATA.siteUrl,
+    siteName: SITE_METADATA.companyName,
+    title: SITE_METADATA.title,
     description: SITE_METADATA.description,
-    type: "website",
+    images: [
+      {
+        url: SITE_METADATA.ogImage,
+        width: 1200,
+        height: 630,
+        alt: SITE_METADATA.companyName,
+        type: 'image/png',
+      },
+    ],
+  },
+  
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    site: SITE_METADATA.twitterHandle,
+    creator: SITE_METADATA.twitterHandle,
+    title: SITE_METADATA.title,
+    description: SITE_METADATA.description,
+    images: [SITE_METADATA.ogImage],
+  },
+  
+  // Additional metadata
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  
+  // Verification (add your verification codes when you have them)
+  verification: {
+    google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+    // bing: 'your-bing-verification-code',
   },
 };
 
@@ -38,11 +90,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <head>
-        <link rel="icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" type="image/png" />
-        <link rel="shortcut icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" type="image/png" />
-        <link rel="apple-touch-icon" href="https://github.com/ABHAY200/team-inspire-website/blob/main/public/logo.png?raw=true" />
-      </head>
       <body className="antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
