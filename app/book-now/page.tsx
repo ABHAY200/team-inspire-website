@@ -110,8 +110,6 @@ export default function BookNowPage() {
                   variant="primary"
                   size="md"
                   className="bg-gold hover:bg-gold-light"
-                  target="_blank"
-                  rel="noopener noreferrer"
                 >
                   Book Appointment
                 </Button>
