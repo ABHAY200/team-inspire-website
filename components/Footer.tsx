@@ -109,7 +109,6 @@ const Footer: React.FC = () => {
                 <Phone className="h-5 w-5 text-gold mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm">{CONTACT_INFO.phone}</p>
-                  <p className="text-gray-400 text-xs">Toll Free: {CONTACT_INFO.tollFree}</p>
                 </div>
               </li>
               <li className="flex items-start space-x-3">

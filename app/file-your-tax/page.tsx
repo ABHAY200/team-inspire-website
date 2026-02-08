@@ -72,7 +72,7 @@ export default function FileYourTaxPage() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Steps to File Your Tax Online"
@@ -99,7 +99,7 @@ export default function FileYourTaxPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits Section */}
       <section className="py-20 bg-white">
@@ -174,9 +174,6 @@ export default function FileYourTaxPage() {
               Get started today and let our experts maximize your refund.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/book-now" variant="primary" size="lg">
-                Book Now
-              </Button>
               <Button href="/book-now" variant="outline" size="lg" className="border-gold text-gold hover:bg-gold hover:text-navy">
                 Book Appointment
               </Button>

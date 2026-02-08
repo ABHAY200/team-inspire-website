@@ -30,3 +30,6 @@ export const SOCIAL_MEDIA = {
   facebook: '#',
   instagram: '#',
 };
+
+export const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSed4wmzYRO1ifzz_BahWDvFKMM3RO1MuuSH9rZjDGLlw9GGTA/viewform?usp=dialog';
+export const CALENDLY_URL = 'https://calendly.com/teaminspiretax/30min';

@@ -1,57 +1,35 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import SectionHeader from '@/components/SectionHeader';
-import Button from '@/components/Button';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import { CONTACT_INFO } from '@/constants';
+import React from "react";
+import { motion } from "framer-motion";
+import SectionHeader from "@/components/SectionHeader";
+import Button from "@/components/Button";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { CONTACT_INFO, GOOGLE_FORM_URL, CALENDLY_URL } from "@/constants";
 
 export default function BookNowPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for booking! We will confirm your appointment soon.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
+  // Google Form URL - Replace with your actual Google Form embed URL
   const contactInfo = [
     {
       icon: <Phone size={24} />,
-      title: 'Phone',
+      title: "Phone",
       content: CONTACT_INFO.phone,
-      subcontent: `Toll Free: ${CONTACT_INFO.tollFree}`,
     },
     {
       icon: <Mail size={24} />,
-      title: 'Email',
+      title: "Email",
       content: CONTACT_INFO.email,
-      subcontent: 'We respond within 24 hours',
+      subcontent: "We respond within 24 hours",
     },
     {
       icon: <MapPin size={24} />,
-      title: 'Address',
+      title: "Address",
       content: CONTACT_INFO.address.line1,
       subcontent: CONTACT_INFO.address.line2,
     },
     {
       icon: <Clock size={24} />,
-      title: 'Business Hours',
+      title: "Business Hours",
       content: CONTACT_INFO.businessHours.weekdays,
       subcontent: CONTACT_INFO.businessHours.saturday,
     },
@@ -77,7 +55,7 @@ export default function BookNowPage() {
       </section>
 
       {/* Contact Info & Form Section */}
-      <section className="py-20 bg-white">
+      <section className="sm:py-20 py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
@@ -92,7 +70,7 @@ export default function BookNowPage() {
                 subtitle="Book Your Appointment"
                 description=""
               />
-              <div className="space-y-6 mt-8">
+              <div className="sm:space-y-5 space-y-2 mt-4 sm:mt-8">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.title}
@@ -106,132 +84,68 @@ export default function BookNowPage() {
                       {info.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-navy mb-1">{info.title}</h3>
+                      <h3 className="font-semibold text-navy mb-1">
+                        {info.title}
+                      </h3>
                       <p className="text-gray-700">{info.content}</p>
                       {info.subcontent && (
-                        <p className="text-sm text-gray-500 mt-1">{info.subcontent}</p>
+                        <p className="text-sm text-gray-500 mt-1 sm:block hidden">
+                          {info.subcontent}
+                        </p>
                       )}
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-12 bg-gradient-to-br from-navy to-navy-dark rounded-xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-4 text-gold">Need Immediate Assistance?</h3>
+              <div className="mt-12 bg-gradient-to-br from-navy to-navy-dark rounded-xl p-6 text-white">
+                <h3 className="text-2xl font-bold mb-4 text-gold">
+                  Schedule a Meeting
+                </h3>
                 <p className="text-gray-200 mb-6">
-                  For urgent matters, please call us directly. Our team is ready to help you
-                  with your tax and accounting needs.
+                  Book a convenient time slot with our tax experts. Choose a date and time that works best for you.
                 </p>
                 <Button
-                  href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}
+                  href={CALENDLY_URL}
                   variant="primary"
                   size="md"
                   className="bg-gold hover:bg-gold-light"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Call Now
+                  Book Appointment
                 </Button>
               </div>
             </motion.div>
 
-            {/* Contact Form */}
+            {/* Google Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="bg-gray-50 rounded-xl p-4 sm:p-6 md:p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-navy mb-6">Book Your Appointment</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-navy mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors"
-                      placeholder="(416) 123-4567"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-navy mb-2">
-                      Subject *
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors"
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="tax-filing">Tax Filing</option>
-                      <option value="business-tax">Business Tax</option>
-                      <option value="bookkeeping">Bookkeeping</option>
-                      <option value="consultation">Consultation</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors resize-none"
-                      placeholder="Tell us how we can help you..."
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
+              <div className="bg-gray-50 rounded-xl shadow-lg overflow-hidden">
+                <div className="p-4 sm:p-6" style={{ backgroundColor: 'rgb(239, 235, 247)' }}>
+                  <p className="text-[#000] text-sm sm:text-base">
+                    Fill out the form below and we'll get back to you shortly
+                  </p>
+                </div>
+                <div style={{ backgroundColor: 'rgb(239, 235, 247)' }} className="w-full bg-white">
+                  <iframe
+                    src={GOOGLE_FORM_URL}
+                    width="100%"
+                    height="800"
+                    frameBorder="0"
+                    marginHeight={0}
+                    marginWidth={0}
+                    title="Book Appointment Form"
+                    className="w-full min-h-[800px]"
+                    style={{ border: 'none' }}
                   >
-                    <Send className="mr-2 h-5 w-5" />
-                    Send Message
-                  </Button>
-                </form>
+                    Loading…
+                  </iframe>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -251,19 +165,43 @@ export default function BookNowPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white rounded-xl shadow-lg p-8 text-center"
+            className="bg-white rounded-xl shadow-lg overflow-hidden"
           >
-            <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-gold mx-auto mb-4" />
-                <p className="text-gray-600 text-lg">
-                  {CONTACT_INFO.address.line1}<br />
-                  {CONTACT_INFO.address.line2}
-                </p>
-                <p className="text-gray-500 mt-4">
-                  (Map integration can be added here)
-                </p>
+            <div className="p-6 bg-gradient-to-r from-navy to-navy-dark text-white">
+              <div className="flex items-center justify-center space-x-3">
+                <MapPin className="h-6 w-6 text-gold" />
+                <div className="text-center">
+                  <p className="text-lg font-semibold">
+                    {CONTACT_INFO.address.line1}
+                  </p>
+                  <p className="text-gray-200 text-sm">
+                    {CONTACT_INFO.address.line2}
+                  </p>
+                </div>
               </div>
+            </div>
+            <div className="relative w-full h-96 md:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.5847!2d-79.2847!3d43.7735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d31b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s3601%20Victoria%20Park%20Ave%2C%20Scarborough%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Team Inspire Office Location"
+              />
+            </div>
+            <div className="p-6 bg-gray-50 text-center">
+              <a
+                href="https://maps.app.goo.gl/GaTQz9zKAgfpyczN7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors font-medium"
+              >
+                <MapPin className="h-5 w-5" />
+                <span>Open in Google Maps</span>
+              </a>
             </div>
           </motion.div>
         </div>

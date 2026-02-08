@@ -1,21 +1,42 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
-import Button from '@/components/Button';
-import ServiceCard from '@/components/ServiceCard';
-import SectionHeader from '@/components/SectionHeader';
-import TestimonialCard from '@/components/TestimonialCard';
-import { CheckCircle, Users, Clock, FileText, HelpCircle } from 'lucide-react';
-import { SERVICES_DATA, TESTIMONIALS, STATS, FAQS, HERO_CONTENT } from '@/constants';
-import { getIcon } from '@/utils/icons';
+import React, { useEffect, useRef } from "react";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import Button from "@/components/Button";
+import ServiceCard from "@/components/ServiceCard";
+import SectionHeader from "@/components/SectionHeader";
+import TestimonialCard from "@/components/TestimonialCard";
+import {
+  CheckCircle,
+  Users,
+  Clock,
+  FileText,
+  HelpCircle,
+  MapPin,
+} from "lucide-react";
+import {
+  SERVICES_DATA,
+  TESTIMONIALS,
+  STATS,
+  FAQS,
+  HERO_CONTENT,
+  CONTACT_INFO,
+} from "@/constants";
+import { getIcon } from "@/utils/icons";
 
 export default function Home() {
-
   // Animated Counter Component
-  const AnimatedCounter = ({ value, suffix, delay = 0 }: { value: number; suffix: string; delay?: number }) => {
+  const AnimatedCounter = ({
+    value,
+    suffix,
+    delay = 0,
+  }: {
+    value: number;
+    suffix: string;
+    delay?: number;
+  }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [displayValue, setDisplayValue] = React.useState(0);
     const motionValue = useMotionValue(0);
     const springValue = useSpring(motionValue, {
@@ -29,8 +50,8 @@ export default function Home() {
           motionValue.set(value);
         }, delay * 100);
 
-        const unsubscribe = springValue.on('change', (latest) => {
-          if (suffix === '') {
+        const unsubscribe = springValue.on("change", (latest) => {
+          if (suffix === "") {
             setDisplayValue(Number(latest.toFixed(1)));
           } else {
             setDisplayValue(Math.floor(latest));
@@ -52,7 +73,6 @@ export default function Home() {
       </span>
     );
   };
-
 
   return (
     <div>
@@ -99,13 +119,17 @@ export default function Home() {
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-gold rounded-full blur-3xl"
           />
         </div>
-        
+
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-          }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px)",
+              backgroundSize: "50px 50px",
+            }}
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -117,7 +141,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center justify-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gold/20 backdrop-blur-sm border border-gold/30 rounded-full mb-4 sm:mb-6"
             >
-              <span className="text-gold text-xs sm:text-sm font-semibold">{HERO_CONTENT.badge}</span>
+              <span className="text-gold text-xs sm:text-sm font-semibold">
+                {HERO_CONTENT.badge}
+              </span>
             </motion.div>
 
             {/* Main Heading */}
@@ -127,8 +153,8 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 leading-tight px-4 sm:px-6 md:px-0"
             >
-              {HERO_CONTENT.heading}{' '}
-              <span className="text-gold">{HERO_CONTENT.highlightedText}</span>{' '}
+              {HERO_CONTENT.heading}{" "}
+              <span className="text-gold">{HERO_CONTENT.highlightedText}</span>{" "}
               {HERO_CONTENT.headingEnd}
             </motion.h1>
 
@@ -159,10 +185,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.9 }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-10 md:mb-12 w-full px-4 sm:px-0"
             >
-              <Button href="/file-your-tax" variant="primary" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto max-w-xs sm:max-w-none shadow-2xl shadow-gold/20 hover:shadow-gold/40 transition-all">
-                File Your Tax Now
-              </Button>
-              <Button href="/book-now" variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto max-w-xs sm:max-w-none border-2 border-gold text-gold hover:bg-gold hover:text-navy backdrop-blur-sm bg-white/5">
+              <Button
+                href="/book-now"
+                variant="primary"
+                size="lg"
+                className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto max-w-xs sm:max-w-none shadow-2xl shadow-gold/20 hover:shadow-gold/40 transition-all"
+              >
                 Book Appointment
               </Button>
             </motion.div>
@@ -176,10 +204,14 @@ export default function Home() {
             >
               {HERO_CONTENT.trustIndicators.map((indicator, index) => (
                 <React.Fragment key={indicator}>
-                  {index > 0 && <div className="hidden sm:block w-1 h-1 bg-gold rounded-full" />}
+                  {index > 0 && (
+                    <div className="hidden sm:block w-1 h-1 bg-gold rounded-full" />
+                  )}
                   <div className="flex items-center justify-center gap-2">
                     <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gold flex-shrink-0" />
-                    <span className="text-gray-300 whitespace-nowrap">{indicator}</span>
+                    <span className="text-gray-300 whitespace-nowrap">
+                      {indicator}
+                    </span>
                   </div>
                 </React.Fragment>
               ))}
@@ -219,18 +251,21 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
-                title: 'In-Person',
-                description: 'Book an appointment or walk in for a personalized tax filing experience with our experts.',
+                title: "In-Person",
+                description:
+                  "Book an appointment or walk in for a personalized tax filing experience with our experts.",
                 icon: <Users size={32} />,
               },
               {
-                title: 'Remotely',
-                description: 'Skip the office visit, submit online in minutes — our experts handle the rest. Fast. Easy. Expert-reviewed.',
+                title: "Remotely",
+                description:
+                  "Skip the office visit, submit online in minutes — our experts handle the rest. Fast. Easy. Expert-reviewed.",
                 icon: <Clock size={32} />,
               },
               {
-                title: 'Documents Drop-Off',
-                description: 'Visit our office, leave your documents with us and relax — we\'ll handle the rest. No forms. No stress.',
+                title: "Documents Drop-Off",
+                description:
+                  "Visit our office, leave your documents with us and relax — we'll handle the rest. No forms. No stress.",
                 icon: <FileText size={32} />,
               },
             ].map((option, index) => (
@@ -242,8 +277,12 @@ export default function Home() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-xl p-4 sm:p-6 md:p-8 shadow-lg text-center hover:shadow-xl transition-shadow"
               >
-                <div className="text-gold mb-4 flex justify-center">{option.icon}</div>
-                <h3 className="text-xl font-bold text-navy mb-3">{option.title}</h3>
+                <div className="text-gold mb-4 flex justify-center">
+                  {option.icon}
+                </div>
+                <h3 className="text-xl font-bold text-navy mb-3">
+                  {option.title}
+                </h3>
                 <p className="text-gray-600">{option.description}</p>
               </motion.div>
             ))}
@@ -275,7 +314,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Stats Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-navy text-white relative overflow-hidden">
         {/* Decorative Background Elements */}
@@ -283,7 +321,7 @@ export default function Home() {
           <div className="absolute top-0 left-1/4 w-64 h-64 bg-gold rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-gold rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {STATS.map((stat, index) => (
@@ -291,18 +329,18 @@ export default function Home() {
                 key={stat.label}
                 initial={{ opacity: 0, y: 30, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ 
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
                   delay: index * 0.15,
                   duration: 0.6,
-                  type: 'spring',
+                  type: "spring",
                   stiffness: 100,
-                  damping: 15
+                  damping: 15,
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 className="text-center group cursor-default"
               >
@@ -310,19 +348,19 @@ export default function Home() {
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
+                  transition={{
                     delay: index * 0.15 + 0.3,
-                    type: 'spring',
+                    type: "spring",
                     stiffness: 200,
-                    damping: 15
+                    damping: 15,
                   }}
                   className="relative inline-block mb-3"
                 >
                   <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl group-hover:bg-gold/30 transition-colors"></div>
                   <div className="relative text-4xl sm:text-5xl md:text-6xl font-bold text-gold mb-2">
-                    <AnimatedCounter 
-                      value={stat.value} 
-                      suffix={stat.suffix} 
+                    <AnimatedCounter
+                      value={stat.value}
+                      suffix={stat.suffix}
                       delay={index * 0.15 + 0.3}
                     />
                   </div>
@@ -339,7 +377,7 @@ export default function Home() {
                 {/* Decorative line */}
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
+                  whileInView={{ width: "100%" }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 + 0.6, duration: 0.5 }}
                   className="h-0.5 bg-gold/30 mx-auto mt-3 group-hover:bg-gold/50 transition-colors"
@@ -404,6 +442,60 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Map Section Placeholder */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title="Visit Our Office"
+            subtitle="Location"
+            description="We're conveniently located in Scarborough, Ontario"
+            center
+          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <div className="p-6 bg-gradient-to-r from-navy to-navy-dark text-white">
+              <div className="flex items-center justify-center space-x-3">
+                <MapPin className="h-6 w-6 text-gold" />
+                <div className="text-center">
+                  <p className="text-lg font-semibold">
+                    {CONTACT_INFO.address.line1}
+                  </p>
+                  <p className="text-gray-200 text-sm">
+                    {CONTACT_INFO.address.line2}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="relative w-full h-96 md:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.5847!2d-79.2847!3d43.7735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d31b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s3601%20Victoria%20Park%20Ave%2C%20Scarborough%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Team Inspire Office Location"
+              />
+            </div>
+            <div className="p-6 bg-gray-50 text-center">
+              <a
+                href="https://maps.app.goo.gl/GaTQz9zKAgfpyczN7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors font-medium"
+              >
+                <MapPin className="h-5 w-5" />
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }

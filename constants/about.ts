@@ -40,7 +40,7 @@ export const WHY_CHOOSE_US: string[] = [
 
 export const COMPANY_STORY = {
   introduction: 'Team Inspire Tax & Accounting was founded with a simple mission: to make tax preparation and accounting services accessible, professional, and stress-free for everyone.',
-  experience: 'With over 10 years of combined experience, our team of certified tax professionals and accountants has helped thousands of individuals and businesses navigate the complexities of the Canadian tax system.',
+  experience: 'With over 5 years of combined experience, our team of certified tax professionals and accountants has helped thousands of individuals and businesses navigate the complexities of the Canadian tax system.',
   approach: 'We understand that tax season can be overwhelming. That\'s why we\'ve built our practice around three core principles: expertise, integrity, and personalized service. Every client receives the attention and care they deserve, whether they\'re filing a simple personal return or managing complex business taxes.',
   commitment: 'Our commitment to staying current with the latest tax laws and regulations ensures that our clients always receive accurate, up-to-date advice and maximize their returns while maintaining full compliance.',
 };

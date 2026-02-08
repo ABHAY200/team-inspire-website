@@ -59,7 +59,7 @@ export default function AboutPage() {
               className="bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl p-8 h-full flex items-center justify-center"
             >
               <div className="text-center">
-                <div className="text-6xl font-bold text-gold mb-4">10+</div>
+                <div className="text-6xl font-bold text-gold mb-4">5+</div>
                 <div className="text-2xl font-semibold text-navy mb-2">Years of Excellence</div>
                 <div className="text-gray-600">Serving clients across Canada</div>
               </div>
