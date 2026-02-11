@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                 alt={SITE_METADATA.companyName}
                 width={200}
                 height={60}
-                className="h-12 w-auto object-contain"
+                className="h-12 w-auto object-contain brightness-0 invert drop-shadow-2xl"
               />
             </div>
             <p className="text-gray-300 text-sm mb-4">

@@ -13,7 +13,7 @@ export const NAV_LINKS: NavLink[] = [
     submenu: [
       { name: 'Personal Tax Services', href: '/services/personal-tax' },
       { name: 'Business Tax Services', href: '/services/business-tax' },
-      { name: 'Bookkeeping', href: '/services/bookkeeping' },
+      { name: 'Accounting & Bookkeeping', href: '/services/bookkeeping' },
     ],
   },
   // { name: 'Gallery', href: '/gallery' },
