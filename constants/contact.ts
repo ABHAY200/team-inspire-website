@@ -27,8 +27,8 @@ export const CONTACT_INFO: ContactInfo = {
 };
 
 export const SOCIAL_MEDIA = {
-  facebook: '#',
-  instagram: '#',
+  linkedin: 'https://www.linkedin.com/company/team-inspire-tax-accounting/',
+  instagram: 'https://www.instagram.com/team_inspire_tax_accounting?igsh=dGJneHl3YjI2b2h0',
 };
 
 export const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc0NxMwoXRxAtZ_dSP44QNfAq81VzDzC5_ApvdzqOkGZcafIQ/viewform';

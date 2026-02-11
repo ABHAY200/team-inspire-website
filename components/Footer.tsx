@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
 import { CONTACT_INFO, SOCIAL_MEDIA, SITE_METADATA } from '@/constants';
 
 const Footer: React.FC = () => {
@@ -27,11 +27,11 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href={SOCIAL_MEDIA.facebook}
+                href={SOCIAL_MEDIA.linkedin}
                 className="text-gray-300 hover:text-gold transition-colors"
-                aria-label="Facebook"
+                aria-label="Linkedin"
               >
-                <Facebook size={20} />
+                <Linkedin size={20} />
               </a>
               <a
                 href={SOCIAL_MEDIA.instagram}
