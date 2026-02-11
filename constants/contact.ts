@@ -29,7 +29,8 @@ export const CONTACT_INFO: ContactInfo = {
 export const SOCIAL_MEDIA = {
   linkedin: 'https://www.linkedin.com/company/team-inspire-tax-accounting/',
   instagram: 'https://www.instagram.com/team_inspire_tax_accounting?igsh=dGJneHl3YjI2b2h0',
+  whatsapp: '#',
 };
 
 export const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc0NxMwoXRxAtZ_dSP44QNfAq81VzDzC5_ApvdzqOkGZcafIQ/viewform';
-export const CALENDLY_URL = 'https://calendly.com/teaminspiretax/30min';
+export const CALENDLY_URL = 'https://calendly.com/teaminspiretax/30min?month=2026-02';

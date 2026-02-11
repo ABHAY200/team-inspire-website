@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 import { CONTACT_INFO, SOCIAL_MEDIA, SITE_METADATA } from '@/constants';
 
 const Footer: React.FC = () => {
@@ -39,6 +39,13 @@ const Footer: React.FC = () => {
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
+              </a>
+              <a
+                href={SOCIAL_MEDIA.whatsapp}
+                className="text-gray-300 hover:text-gold transition-colors"
+                aria-label="Whatsapp"
+              >
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
