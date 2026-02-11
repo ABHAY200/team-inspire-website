@@ -124,22 +124,22 @@ const Navbar: React.FC = () => {
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: '100vh' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-navy border-t border-navy-light"
+            className="lg:hidden bg-white border-t border-gray-200 h-screen"
           >
             <div className="px-4 py-4 space-y-4">
               {NAV_LINKS.map((link) => (
                 <div key={link.name}>
                   {link.submenu ? (
                     <div>
-                      <div className="text-white font-medium mb-2">{link.name}</div>
+                      <div className="text-navy font-medium mb-2">{link.name}</div>
                       <div className="pl-4 space-y-2">
                         {link.submenu.map((sub) => (
                           <Link
                             key={sub.name}
                             href={sub.href}
-                            className="block text-gray-300 hover:text-gold transition-colors"
+                            className="block text-gray-600 hover:text-gold transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             {sub.name}
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="block text-white font-medium hover:text-gold transition-colors"
+                      className="block text-navy font-medium hover:text-gold transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}
