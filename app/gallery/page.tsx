@@ -157,7 +157,7 @@ export default function Gallery() {
               <X className="h-6 w-6 text-navy" />
             </button>
 
-            <div className="relative h-[60vh] md:h-[70vh] bg-black">
+            <div className="relative h-[60vh] md:h-[70vh] bg-navy">
               {selectedImageData.type === 'video' ? (
                 <video
                   src={selectedImageData.imageUrl}
