@@ -9,10 +9,10 @@ export interface GalleryImage {
 
 export const GALLERY_CATEGORIES = [
   'All',
-  'Office',
-  'Team',
-  'Achievements',
   'Events',
+  'Achievements',
+  'Team',
+  'Office',
 ];
 
 export const GALLERY_IMAGES: GalleryImage[] = [
@@ -27,7 +27,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 2,
     title: 'Barrie Strikers Championship',
-    category: 'Team',
+    category: 'Events',
     imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery3.jpeg',
     description: 'Barrie Strikers Championship sponsored by Team Inspire Tax & Accounting',
     type: 'image',
