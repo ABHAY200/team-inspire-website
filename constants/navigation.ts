@@ -16,6 +16,6 @@ export const NAV_LINKS: NavLink[] = [
       { name: 'Accounting & Bookkeeping', href: '/services/bookkeeping' },
     ],
   },
-  // { name: 'Gallery', href: '/gallery' },
+  { name: 'Gallery', href: '/gallery' },
   { name: 'File Your Tax', href: '/file-your-tax' },
 ];

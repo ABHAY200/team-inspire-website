@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '@/components/SectionHeader';
 import { GALLERY_IMAGES, GALLERY_CATEGORIES, GALLERY_HEADER } from '@/constants/gallery';
-import { X } from 'lucide-react';
+import { X, Play } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Gallery() {
@@ -88,14 +88,30 @@ export default function Gallery() {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 onClick={() => setSelectedImage(image.id)}
-                className="relative group cursor-pointer bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all"
+                className="relative group cursor-pointer bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all aspect-square"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={image.imageUrl}
-                    alt={image.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                <div className="relative w-full h-full overflow-hidden">
+                  {image.type === 'video' ? (
+                    <>
+                      <video
+                        src={image.imageUrl}
+                        className="w-full h-full object-cover"
+                        muted
+                        playsInline
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:bg-gold transition-colors">
+                          <Play className="h-8 w-8 text-navy fill-navy" />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <img
+                      src={image.imageUrl}
+                      alt={image.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
@@ -141,12 +157,21 @@ export default function Gallery() {
               <X className="h-6 w-6 text-navy" />
             </button>
 
-            <div className="relative h-[60vh] md:h-[70vh]">
-              <img
-                src={selectedImageData.imageUrl}
-                alt={selectedImageData.title}
-                className="w-full h-full object-contain"
-              />
+            <div className="relative h-[60vh] md:h-[70vh] bg-black">
+              {selectedImageData.type === 'video' ? (
+                <video
+                  src={selectedImageData.imageUrl}
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <img
+                  src={selectedImageData.imageUrl}
+                  alt={selectedImageData.title}
+                  className="w-full h-full object-contain"
+                />
+              )}
             </div>
 
             <div className="p-6 bg-white">
