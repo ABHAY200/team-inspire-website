@@ -29,7 +29,7 @@ export default function BookNowPage() {
     },
     {
       icon: <Clock size={24} />,
-      title: "Business Hours",
+      title: "Opening Hours",
       content: CONTACT_INFO.businessHours.weekdays,
       subcontent: CONTACT_INFO.businessHours.saturday,
     },
@@ -111,7 +111,7 @@ export default function BookNowPage() {
                   size="md"
                   className="bg-gold hover:bg-gold-light"
                 >
-                  Book Appointment
+                  Book an Appointment
                 </Button>
               </div>
             </motion.div>
@@ -137,7 +137,7 @@ export default function BookNowPage() {
                     frameBorder="0"
                     marginHeight={0}
                     marginWidth={0}
-                    title="Book Appointment Form"
+                    title="Book an Appointment Form"
                     className="w-full min-h-[800px]"
                     style={{ border: 'none' }}
                   >

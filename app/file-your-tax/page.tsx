@@ -175,7 +175,7 @@ export default function FileYourTaxPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/book-now" variant="outline" size="lg" className="border-gold text-gold hover:bg-gold hover:text-navy">
-                Book Appointment
+                Book an Appointment
               </Button>
             </div>
           </motion.div>

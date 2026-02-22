@@ -191,7 +191,7 @@ export default function Home() {
                 size="lg"
                 className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto max-w-xs sm:max-w-none shadow-2xl shadow-gold/20 hover:shadow-gold/40 transition-all"
               >
-                Book Appointment
+                Book an Appointment
               </Button>
             </motion.div>
 
