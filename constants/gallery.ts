@@ -93,7 +93,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     title: 'Services',
     category: 'Team',
     imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery12.jpg',
-    description: 'Company Event',
+    description: 'Business Tax',
     type: 'image',
   },
 ];
