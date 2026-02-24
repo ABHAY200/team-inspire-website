@@ -97,7 +97,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     type: 'image',
   },
   {
-    id: 10,
+    id: 11,
     title: 'Manager',
     category: 'Team',
     imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery13.jpg',
