@@ -96,6 +96,14 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     description: 'Business Tax',
     type: 'image',
   },
+  {
+    id: 10,
+    title: 'Manager',
+    category: 'Team',
+    imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery13.jpg',
+    description: 'Office',
+    type: 'image',
+  },
 ];
 
 export const GALLERY_HEADER = {
