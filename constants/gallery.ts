@@ -104,6 +104,14 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     description: 'Office',
     type: 'image',
   },
+  {
+    id: 12,
+    title: 'Marketing',
+    category: 'Events',
+    imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery14.jpg',
+    description: 'Poster',
+    type: 'image',
+  },
 ];
 
 export const GALLERY_HEADER = {
