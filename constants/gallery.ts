@@ -84,7 +84,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     id: 9,
     title: 'Team Activity',
     category: 'Team',
-    imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery11.jpeg',
+    imageUrl: 'https://raw.githubusercontent.com/ABHAY200/team-inspire-website/refs/heads/main/public/gallery/gallery11.jpg',
     description: 'Company Event',
     type: 'image',
   },
