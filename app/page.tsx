@@ -1,7 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "framer-motion";
 import Button from "@/components/Button";
 import ServiceCard from "@/components/ServiceCard";
 import SectionHeader from "@/components/SectionHeader";
@@ -13,6 +19,9 @@ import {
   FileText,
   HelpCircle,
   MapPin,
+  X,
+  Phone,
+  Mail,
 } from "lucide-react";
 import {
   SERVICES_DATA,
@@ -25,6 +34,7 @@ import {
 import { getIcon } from "@/utils/icons";
 
 export default function Home() {
+  const [showContactPopup, setShowContactPopup] = useState(true);
   // Animated Counter Component
   const AnimatedCounter = ({
     value,
@@ -496,6 +506,62 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Quick Contact Popup */}
+      <AnimatePresence>
+        {showContactPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: 100, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 100, scale: 0.8 }}
+            transition={{ duration: 0.5, delay: 1 }}
+            className="fixed bottom-[20px] right-[20px] sm:w-fit w-[calc(100%-40px)] z-40 rounded-lg shadow-xl border-[2px]  border-gold/80 overflow-hidden"
+          >
+            <div className="relative bg-gradient-to-br from-navy to-navy-dark text-white p-4">
+              <button
+                onClick={() => setShowContactPopup(false)}
+                className="absolute top-[2px] right-[2px] sm:p-1.5 p-2 hover:bg-white/20 rounded-full transition-colors"
+              >
+                <X className="h-4 w-4" />
+              </button>
+
+              <h3 className="text-lg mb-2 pr-8">Call for Free Consultation</h3>
+
+              <div className="space-y-3 mt-3">
+                <a
+                  href="tel:+14378736065"
+                  className="flex items-center gap-2 p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-4 w-4 text-navy" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-300">Phone</p>
+                    <p className="text-sm font-semibold group-hover:text-gold transition-colors">
+                      437 873 6065
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:teaminspiretax@gmail.com"
+                  className="flex items-center gap-2 p-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors group"
+                >
+                  <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-4 w-4 text-navy" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-300">Email</p>
+                    <p className="text-sm font-semibold group-hover:text-gold transition-colors break-all">
+                      teaminspiretax@gmail.com
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
