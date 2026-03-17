@@ -180,7 +180,7 @@ export default function BookNowPage() {
             </div>
             <div className="relative w-full h-96 md:h-[500px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.5847!2d-79.2847!3d43.7735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d31b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2s3601%20Victoria%20Park%20Ave%2C%20Scarborough%2C%20ON!5e0!3m2!1sen!2sca!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1439.595298857256!2d-79.2574988!3d43.8104058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d131cb3fffff%3A0x9118c6f37cca8334!2s5200%20Finch%20Ave%20E%20%23305%2C%20Scarborough%2C%20ON%20M1S%204Z5%2C%20Canada!5e0!3m2!1sen!2sin!4v1773717840267!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -192,7 +192,7 @@ export default function BookNowPage() {
             </div>
             <div className="p-6 bg-gray-50 text-center">
               <a
-                href="https://maps.app.goo.gl/GaTQz9zKAgfpyczN7"
+                href="https://maps.app.goo.gl/oAZHAc4t1c9UBivs9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors font-medium"
