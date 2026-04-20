@@ -192,7 +192,7 @@ export default function BookNowPage() {
             </div>
             <div className="p-6 bg-gray-50 text-center">
               <a
-                href="https://maps.app.goo.gl/oAZHAc4t1c9UBivs9"
+                href="https://maps.app.goo.gl/txLys8QUEERb1X839"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center space-x-2 text-navy hover:text-gold transition-colors font-medium"
