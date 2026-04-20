@@ -180,7 +180,7 @@ export default function BookNowPage() {
             </div>
             <div className="relative w-full h-96 md:h-[500px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1439.595298857256!2d-79.2574988!3d43.8104058!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4d131cb3fffff%3A0x9118c6f37cca8334!2s5200%20Finch%20Ave%20E%20%23305%2C%20Scarborough%2C%20ON%20M1S%204Z5%2C%20Canada!5e0!3m2!1sen!2sin!4v1773717840267!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=5200+Finch+Ave+E,+Scarborough,+ON+M1S+4Z5,+Canada&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
