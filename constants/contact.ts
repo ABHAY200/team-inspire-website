@@ -17,7 +17,7 @@ export const CONTACT_INFO: ContactInfo = {
   tollFree: '+1 (437) 326-1797',
   email: 'teaminspiretax@gmail.com',
   address: {
-    line1: 'Unit 305, 5200 Finch Ave East',
+    line1: 'Unit-5200 Finch Ave East',
     line2: 'Scarborough, ON M1S 4Z4',
   },
   businessHours: {
